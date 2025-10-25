@@ -1,2 +1,11 @@
 # FM Radio app
 get_prop(system_app, vendor_fm_radio_app_prop);
+
+# Gamebar
+allow system_app { proc_stat vendor_sysfs_kgsl vendor_sysfs_kgsl_gpuclk }:file r_file_perms;
+
+#bypasscharging
+allow system_app vendor_sysfs_usb_supply:dir search;
+allow system_app vendor_sysfs_usb_supply:file write;
+allow system_app vendor_sysfs_usb_supply:file getattr;
+allow system_app vendor_sysfs_usb_supply:file read;
